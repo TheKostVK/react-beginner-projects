@@ -54,6 +54,14 @@ body {
   height: calc(100% - 130px);
   margin-top: 30px;
 
+  /* Скрыть скроллбар */
+  &::-webkit-scrollbar {
+    height: 0;
+    width: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
   li {
     display: flex;
     align-items: center;
@@ -86,9 +94,6 @@ body {
       margin: 0;
       font-weight: 900;
       font-family: 'Merriweather', serif;
-      margin-left: 15px;
-      margin-top: 5px;
-      margin-left: 0;
       color: #182170;
     }
 
@@ -98,7 +103,6 @@ body {
       font-size: 14px;
       margin: 0;
       color: rgba(0, 0, 0, 0.5);
-      margin-top: 3px;
 
       svg {
         width: 16px;
@@ -111,7 +115,21 @@ body {
       }
     }
   }
+
+  /* Отобразить скроллбар при наведении */
+  &:hover::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    opacity: 1;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    transition: background-color 0.2s ease-in-out;
+  }
 }
+
 
 .send-invite-btn {
   background-color: rgb(251, 80, 0);
